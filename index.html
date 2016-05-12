@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>avalon mmRouter</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="modules/index/static/css/index.scss?__inline">
+</head>
+<body>
+  <header>
+    <link rel="import" href="/modules/common/header/header.html?__inline">
+  </header>
+
+    <div ms-controller="view-main-vm" class="ms-controller index-content">
+      <div class="nav-left clear-float">
+        <link rel="import" href="/modules/common/nav/nav-left.html?__inline">
+      </div>
+      <div class="index-ms-view">
+        <div ms-view></div>
+      </div>
+    </div>
+
+    <!-- for less package -->
+    <script src="/lib/require/require.js"></script>
+    <script src="/modules/index/main.js"></script>
+</body>
+</html>

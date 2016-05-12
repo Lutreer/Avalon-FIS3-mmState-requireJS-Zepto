@@ -1,0 +1,29 @@
+#nav-left-vm{
+	.active{
+		color:green;
+		a{
+			color:green;
+		}
+
+	}
+	.nav-hover{
+		color:yellow;
+		a{
+			color:yellow;
+		}
+	}
+	.nav-father-hover{
+		color:red;
+		a{
+			color:red;
+		}
+	}
+
+	.toggle-true{
+		display: block;
+		overflow: hidden;
+	}
+	.toggle-false{
+		display: none;
+	}
+}

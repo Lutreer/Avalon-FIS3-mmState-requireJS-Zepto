@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="nav-left.scss?__inline">
+
+<div class="ms-controller" id="nav-left-vm" ms-controller="nav-left-vm">
+
+	<ul ms-each="navLeftInfo.navArr">
+		<li ms-include="'nav-left-template'"></li>	
+	</ul>
+
+	<!-- Nested node template -->
+	<script type="avalon" id="nav-left-template">
+		<li ms-if="el.hash" ms-hover="nav-hover" ms-click="navActive(el)"><a ms-attr-href="{{el.hash}}">{{el.name}}</a></li>
+		<li ms-if="!el.hash" ms-click="toggleNavs(el,this)" ms-hover="nav-father-hover"><a>{{el.name}}</a></li>
+		
+		<ul ms-class="{{el.toggle ? 'toggle-true':'toggle-false'}}" ms-each="el.children">
+			<li ms-class="active : el.active" ms-hover="nav-hover" ms-include="'nav-left-template'" ms-click="navActive(el)">
+				<a ms-attr-href="{{el.hash}}">{{el.name}}</a>
+			</li>
+		</ul>
+	</script>
+
+</div>
