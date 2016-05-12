@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 帮助
 ===================
 
@@ -6,3 +7,7 @@
 * 开启模块化包装 fis3-hook-module
 
 
+=======
+# avalon-fis3-mmState-requireJS-JQ
+avalon-1.5 fis3 mmState requireJS jQuery
+>>>>>>> origin/master
