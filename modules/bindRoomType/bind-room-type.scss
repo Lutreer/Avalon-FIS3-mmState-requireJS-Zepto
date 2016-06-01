@@ -1,0 +1,129 @@
+@import '/modules/static/css/_flex';
+#bind-room-type{
+	font-size: 0.8rem;
+	.company{
+		margin-top: .3rem;
+		padding:0 .3rem;
+		@include flexbox;
+
+		div{
+			@include flex-grow(1);
+			@include flexbox;
+			@include align-items(center);
+			
+			span{
+				display: inline-block;
+				width: 1.5rem;
+				height: 1.5rem;
+				margin-right: .3rem;
+			}
+
+			.tomato-logo{
+				background: url('./img/tomato-logo.png?__inline') no-repeat center;
+				background-size: 1.2rem;
+			}
+			.qunar-logo{
+				background: url('./img/qunar-logo.png?__inline') no-repeat center;
+				background-size: 1.2rem;
+			}
+		}
+		.channel{
+			font-size: 0.85rem;
+			width: 46%;
+		}
+		.placeholder{
+			width: 8%;
+		}
+	}
+
+	.inn{
+		height: 2rem;
+		margin-top: .1rem;
+		padding: .3rem .3rem;
+		background-color: #e8fae4;
+		color:#4f9e1e;
+		@include flexbox;
+		@include align-items(center);
+
+		div{
+			word-break: break-all;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+			@include flex-grow(1);
+		}
+		.inn-name{
+			width: 46%;
+		}
+		.placeholder{
+			width: 8%;
+		}
+	}
+
+	.room-type-match-content{
+		padding: .5rem .3rem 0 .3rem;
+		@include flexbox;
+		@include align-items(flex-start);
+		@include flex-direction(column);
+
+		.room-type-item{
+			width: 100%;
+			margin-bottom: .5rem;
+			@include flexbox;
+			@include align-items(center);
+
+
+			.match-link{
+				width: 8%;
+				height: 2rem;
+
+				@include flex-grow(1);
+				background: url('./img/contact.png?__inline') no-repeat center;
+				background-size: 1.2rem;
+			}
+
+			@at-root .room-type{
+				height: 2rem;
+				padding: 0 .25rem;
+				text-align: center;
+				line-height: 2rem;
+				border: .05rem solid #c9c9c9;
+				border-radius: .25rem;
+
+				word-break:break-all;
+				white-space:nowrap;
+				overflow:hidden;
+				text-overflow:ellipsis;
+			}
+			.room-type-match{
+				width: 46%;
+				background-color: #eee;
+			}
+		}
+		
+	}
+	.room-type-mismatch-content{
+		padding: 0rem .3rem 0 .3rem;
+		@include flexbox;
+		@include flex-direction(row);
+		@include justify-content(space-between);
+
+		.room-type-list{
+			width: 46%;
+
+			.bind-room-mismatch{
+				margin-bottom: .5rem;
+			}
+		}
+
+		.tap-match{
+			background-color: #eee;
+		}
+	}
+	.submit-btn{
+		width: 60%;
+		text-align: center;
+		margin: 1rem auto;
+	}
+	
+}

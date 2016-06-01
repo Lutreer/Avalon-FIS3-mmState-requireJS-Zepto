@@ -1,0 +1,66 @@
+@import '/modules/static/css/_flex';
+
+#price-info {
+	$tomatoColor: #e10000;
+	$qunarColor: #008aa0;
+	padding: .4rem 0;
+	font-size: .8rem;
+
+	section {
+		margin-bottom: .6rem;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: .1rem 0;
+		}
+	}
+	.innInfo {
+		padding: 0 .4rem;
+	}
+	.annotation {
+		padding: 0 .4rem;
+		color: #808080;
+
+		span {
+			display: inline-block;
+			width: .5rem;
+			height: .5rem;
+			margin-right: .3rem;
+		}
+		.tomato-price-mark {
+			background-color: $tomatoColor;
+		}
+		.qunar-price-mark {
+			background-color: $qunarColor;
+		}
+	}
+	.price-table {
+		width: 100%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		padding: .5rem;
+		background-color: #FAFAFA;
+
+		table {
+			border: 1px solid #B8B7B7;
+			border-collapse: collapse;
+
+			th, td {
+				min-width: 3.5rem;
+				padding: .25rem;
+				text-align: center;
+			}
+		}
+		.tomato-price {
+			color: $tomatoColor;
+			border-bottom: 1px solid #808080;
+		}
+		.qunar-price {
+			color: $qunarColor;
+		}
+	}
+}

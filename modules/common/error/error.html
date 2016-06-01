@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="error.scss?__inline">
+<div  class="" ms-controller="error" id="error">
+
+	<section ms-if="httpStatusCode == 401">
+		<h1>401 Unauthorized</h1>
+		<h4>请您重新登录或返回重新进入该页面</h4>
+	</section>
+	<section ms-if="httpStatusCode == 404">
+		<h1>404 Not Found</h1>
+		<h4>找不到您请求的资源</h4>
+	</section>
+</div>
+

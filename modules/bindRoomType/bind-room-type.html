@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="bind-room-type.scss?__inline">
+<div ms-controller="bind-room-type" id="bind-room-type" class="ms-controller">
+	<div class="company">
+		<div class="channel">
+			<span class="tomato-logo"></span><font>番茄{{pageInfo.bbb}}</font>
+		</div>
+		<div class="placeholder"></div>
+		<div class="channel">
+			<span class="qunar-logo"></span><font>{{pageInfo.innInfo.another.platform}}</font>
+		</div>
+	</div>
+	<div class="inn">
+		<div class="inn-name">{{pageInfo.innInfo.tomato.innName}}</div>
+		<div class="placeholder"></div>
+		<div  class="inn-name">{{pageInfo.innInfo.another.innName}}</div>
+	</div>
+	<div class="room-type-match-content">
+		<div ms-repeat="pageInfo.match" class="room-type-item">
+			<div class="room-type room-type-match">{{el.tomato.roomTypeName}}</div>
+			<div ms-on-tap="unbindRoom(el,$index,this)" class="match-link"></div>
+			<div class="room-type room-type-match">{{el.another.roomTypeName}}</div>
+		</div>
+	</div>
+	<div class="room-type-mismatch-content">
+		<div class="room-type-list">
+			<div ms-on-tap="bindRoom(el,this,'tomato')" ms-repeat="pageInfo.mismatch.tomato" class="room-type bind-room-mismatch">{{el.roomTypeName}}</div>
+		</div>
+		<div class="room-type-list">
+			<div ms-on-tap="bindRoom(el,this,'another')" ms-repeat="pageInfo.mismatch.another" class="room-type bind-room-mismatch">{{el.roomTypeName}}</div>
+		</div>
+
+	</div>
+
+	<div class="submit-btn">
+		<a type="button" class="button button-big button-fill button-success" ms-on-tap="submitBindRoom()">保存</a>
+	</div>
+
+</div>
+<!-- <script src="/modules/bindRoomType/bind-room-type-ctrl.js?__inline"></script> -->

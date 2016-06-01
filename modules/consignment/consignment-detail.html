@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="./consignment-detail.scss?__inline">
+<div class="ms-controller" ms-controller="consignment-detail" id="consignment-detail">
+	<ul class="nav-tab clear-float">
+        <li ms-class-active="tabIndex == 1" ms-on-tap="tabChange('1')">基本信息</li>
+        <li ms-class-active="tabIndex == 2" ms-on-tap="tabChange('2')">结算信息</li>
+    </ul>
+
+	<div class="tab-content tab-content-base-info" ms-visible="tabIndex == 1">
+		<section class="base-Info">
+			<ul class="ul-param-list">
+				<li><span class="param-name">佣金比例</span><span class="param-value">{{baseInfo.percentage}}%</span></li>
+				<!-- <li><span class="param-name">上架状态</span><span class="param-value">已上架</span></li> -->
+			</ul>
+
+			<hr/>
+
+			<div class="base-Info-channel" ms-if="upshelfStatus != 0">
+				<div>代销</div>
+				<ul class="ul-channel-list">
+					<li ms-class="{{el.isOpen ? 'open' : 'close'}}" ms-repeat="baseInfo.base">{{el.channelName}}</li>
+				</ul>
+				
+				<hr/>
+
+				<div>活动</div>
+				<ul class="ul-channel-list">
+					<li ms-class-close="el.isOpen == false" ms-class-open="el.isOpen == true" ms-repeat="baseInfo.base">{{el.channelName}}</li>
+				</ul>
+			</div>
+			<div class="base-Info-channel un-upshelf"  ms-if="upshelfStatus == 0">该客栈未上架</div>
+		</section>
+	</div>
+
+	<div class="tab-content tab-content-settlement" ms-visible="tabIndex == 2">
+        <section class="settlement" ms-visible="tabIndex == 2">
+            <div class="account">
+                <div>收款信息</div>
+                <ul class="ul-param-list">
+                    <li><span class="param-name">户&nbsp;&nbsp;&nbsp;&nbsp;名</span><span class="param-value">{{bankInfo.bankAccount}}</span></li>
+                    <li><span class="param-name">账&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="param-value">{{bankInfo.bankCode}}</span></li>
+                    <li><span class="param-name">银&nbsp;&nbsp;&nbsp;&nbsp;行</span><span class="param-value">{{bankInfo.bankName}}</span></li>
+                    <li><span class="param-name">开户行</span><span class="param-value">{{bankInfo.bankAddress}}</span></li>
+                </ul>
+            </div>
+
+            <hr/>
+
+            <div class="history-bills">
+            	<div class="bills pull-to-refresh-content"  ms-on-swipeUp="infiniteScrollBottom()">
+	                <!-- 默认的下拉刷新层 -->
+				    <div class="pull-to-refresh-layer">
+				        <div class="preloader"></div>
+				        <div class="pull-to-refresh-arrow"></div>
+				    </div>
+				    <!-- 下面是正文 -->
+				    <div class="card-container">
+
+				        <div class="card bill" ms-repeat="billsListInfo">
+				            <div class="settlement">
+				            	<div ms-class-un-settlement-logo = "el.settlementStatus == '0'" 
+				            		 ms-class-settlement-logo = "el.settlementStatus == '1'"
+				            		 ms-class-delay-logo = "el.settlementStatus == '2'"></div>
+				            	<div ms-class-un-settlement-text = "el.settlementStatus == '0'" 
+				            		 ms-class-settlement-text = "el.settlementStatus == '1'"
+				            		 ms-class-delay-text = "el.settlementStatus == '2'">{{el.settlementStatus | consignmentSettlementStatus}}</div>
+				            </div>
+				            <div class="detail-one">
+				                <div>{{el.settlementTime}}</div>
+				                <div>结算金额：{{el.innSettlementAmount | currency}}</div>
+				                <div>{{el.totalOrder}}笔订单</div>
+				            </div>
+				            <div class="confirm"
+				            	 ms-class-confirm-text = "el.confirmStatus == '0'" 
+				            	 ms-class-un-confirm-text = "el.confirmStatus == '1'"
+				            	 ms-class-confirm-text = "el.confirmStatus == '2'">{{el.confirmStatus | consignmentConfirmStatus}}</div>
+				        </div>
+
+				    </div>
+
+
+				     <!-- 加载提示符 -->
+					<div class="infinite-scroll-preloader">
+					  <div class="preloader" ms-if="showBottomLoading == true"></div>
+					  <div class="no-preloader" ms-if="showBottomLoading == false">没有更多内容了</div>
+					</div>
+
+                </div>
+            </div>
+
+            
+        </section>
+    </div>
+
+</div>

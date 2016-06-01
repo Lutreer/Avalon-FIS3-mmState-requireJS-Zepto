@@ -50,3 +50,7 @@ Temporary Items
 # my ignore
 
 /node_modules/**
+/dist/**
+debug.log
+.svn
+.idea

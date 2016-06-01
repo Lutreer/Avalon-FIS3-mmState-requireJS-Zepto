@@ -1,0 +1,239 @@
+@import '/modules/static/css/_flex';
+@import '/modules/static/css/_global';
+
+#consignment-detail {
+    height: 100%;
+    overflow: hidden;
+
+    .nav-tab {
+        height: 2rem;
+        line-height: 1.8rem;
+        padding: 0;
+        margin: .6rem .3rem .35rem .3rem;
+        border: .1rem solid $g_baseColor;
+        list-style: none;
+        @include flexbox;
+        @include flex-direction(row);
+
+        li {
+            @include flex-grow(1)
+            font-size: .85rem;
+            text-align: center;
+            color: $g_baseColor;
+        }
+        & .active {
+            color: #fff;
+            background-color: $g_baseColor;
+        }
+    }
+    .tab-content-base-info {
+        height: 100%;
+        padding-bottom: 3rem;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tab-content-settlement {
+        height: 100%;
+        padding-bottom: 3rem;
+        overflow: hidden;
+    }
+    .tab-content {
+        font-size: .8rem;
+
+        hr {
+            height: .1rem;
+            border: none;
+            margin: .2rem 0;
+            background-color: $g_baseColor;
+        }
+        .base-Info {
+            .ul-param-list {
+                list-style-type: none;
+                padding: 0;
+                margin: .3rem;
+
+                li {
+                    padding: .1rem 0;
+                    @include flexbox;
+
+                    .param-name {
+                        display: inline-block;
+                        text-align: justify;
+                        width: 4.3rem;
+                        color: #808080;
+                    }
+                    .param-value {
+                    }
+                }
+            }
+            .base-Info-channel {
+                margin: 0 .3rem;
+
+                &>div {
+                    margin: .6rem 0;
+                    color: black;
+                }
+                hr {
+                    margin: .5rem 0 .5rem 0;
+                    height: 1px;
+                    border: none;
+                    background-color: #ECECEC;
+                }
+            }
+            .ul-channel-list {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                @include flexbox;
+                @include justify-content(space-between);
+                @include flex-wrap(wrap);
+
+                li {
+                    text-align: center;
+                    padding: .3rem .5rem;
+                    margin-bottom: .7rem;
+                    word-break: break-all;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    border-radius: .3rem;
+                    @include flex-basis(46%);
+                }
+                .open {
+                    background-color: #E2E2E2;
+                    color: #808080;
+                }
+                .close {
+                    background-color: #F4F4F4;
+                    color: #D4D4D4;
+                }
+            }
+            .un-upshelf {
+                color: #808080;
+                margin-top: 3rem;
+                text-align: center;
+            }
+        }
+        .settlement {
+            height: 100%;
+            overflow: hidden;
+
+            .account {
+                div {
+                    height: 1.2rem;
+                    padding: 0 .3rem;
+                    color: black;
+                }
+                .ul-param-list {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0 .3rem .3rem .3rem;
+
+                    li {
+                        line-height: 1.2rem;
+                        @include flexbox;
+
+                        .param-name {
+                            width: 3rem;
+                            color: #808080;
+                            text-align: justify;
+                        }
+                        .param-value {
+                        }
+                    }
+                }
+            }
+            .history-bills {
+                height: 100%;
+                padding-bottom: 4.2rem;
+                overflow: hidden;
+                background: #F9F9F9;
+
+                .bills {
+                    height: 100%;
+                    -webkit-overflow-scrolling: touch;
+                    overflow: auto;
+                    margin-top: -2.2rem;
+
+                    .bill {
+                        padding: .4rem .25rem;
+                        @include flexbox;
+
+                        @include align-items(center)
+
+
+                        .settlement {
+                            width: 3.2rem;
+                            overflow: hidden;
+                            padding-right: .25rem;
+                            @include flexbox;
+
+                            @include flex-direction(column)
+                            @include align-items(center)
+
+                            .un-settlement-logo {
+                                width: 1.3rem;
+                                height: 1.3rem;
+                                text-align: center;
+                                background: url('./img/un-settlement.png?__inline') no-repeat center;
+                                background-size: 1.3rem;
+                            }
+                            .un-settlement-text {
+                                color: #d0021b;
+                            }
+                            .settlement-logo {
+                                width: 1.3rem;
+                                height: 1.3rem;
+                                text-align: center;
+                                background: url('./img/settlement.png?__inline') no-repeat center;
+                                background-size: 1.3rem;
+                            }
+                            .settlement-text {
+                                color: #808080;
+                            }
+                            .delay-logo {
+                                width: 1.3rem;
+                                height: 1.3rem;
+                                text-align: center;
+                                background: url('./img/delay.png?__inline') no-repeat center;
+                                background-size: 1.3rem;
+                            }
+                            .delay-text {
+                                color: #d0021b;
+                            }
+                        }
+                        .detail-one {
+                            border-left: 1px solid #ececec;
+                            padding: 0 .3rem 0 .5rem;
+                            overflow: hidden;
+
+                            @include flex-grow(1)
+
+                            div:nth-of-type(1) {
+                                border-bottom: 1px dashed #F5F5F5;
+                            }
+                            div:nth-of-type(2) {
+                                border-bottom: 1px dashed #F5F5F5;
+                            }
+                        }
+                        .confirm {
+                            width: 3rem;
+                            padding-left: .3rem;
+                            overflow: hidden;
+                            text-align: center;
+                        }
+                        .confirm-text {
+                            color: #808080;
+                        }
+                        .un-confirm-text {
+                            color: #d0021b;
+                        }
+                    }
+                    .no-preloader {
+                        color: #DBDBDB;
+                    }
+                }
+            }
+        }
+    }
+}

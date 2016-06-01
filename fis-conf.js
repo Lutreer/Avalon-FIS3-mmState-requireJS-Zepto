@@ -1,38 +1,34 @@
+fis.set('project.ignore', ['node_modules/**', 'output/**', '.git/**', 'fis-conf.js', '*.log', 'dist/**', 'nginx.conf']);
+
 //fis3-postpackager-loader
 fis.match('::packager', {
     spriter: fis.plugin('csssprites'),
     postpackager: fis.plugin('loader', {
         resourceType: 'amd',
-        useInlineMap: true,
-        allInOne: true
+        allInOne: false,
+        useInlineMap: true
     })
 });
-
-fis.match('*.{js,css,png,scss,vm}', {
+fis.match('*.{js,css,png,scss,html}', {
     useHash: true
 });
-
-fis.match('**.vm', {
-    rExt: '.js',
-    isJsLike: true    
+fis.match('index.html', {
+    useHash: false
 });
-/*fis.match('*.js', {
-    optimizer: fis.plugin('uglify-js')
-});*/
-/*fis.match('some big file', {
-  skipDepsAnalysis: true
-});*/
-
 
 
 fis.match('*.scss', {
     rExt: '.css',
     parser: fis.plugin('node-sass')
 });
+/*fis.match('*.less', {
+    rExt: '.css',
+    parser: fis.plugin('less')
+});*/
 
 fis.match('*.{css,scss}', {
-    useSprite: true,
-    optimizer: fis.plugin('clean-css')
+    optimizer: fis.plugin('clean-css'),
+    useSprite: true
 });
 
 fis.match('*.png', {
@@ -42,20 +38,15 @@ fis.match('*.png', {
 //fis3-hook-amd
 fis.hook('amd', {
     paths: {
-        jQuery: '/lib/jquery/jquery.js',
-        avalon: "/lib/avalon/avalon.js",
-        bootstrap: "/lib/bootstrap/bootstrap.js"
+        Zepto: '/lib/zepto/zepto.js',
+        avalon: "/lib/avalon/avalon.js"
     },
     shim: {
-        jQuery: {
-            exports: "jQuery"
+        Zepto: {
+            exports: "Zepto"
         },
         avalon: {
             exports: "avalon"
-        },
-        bootstrap: {
-            deps: ['jQuery'],
-            exports: "bootstrap"
         }
     },
     //忽略标记依赖文件
@@ -63,6 +54,28 @@ fis.hook('amd', {
       'avalon/avalon-1.5.5'
     ]*/
     mode: 'amd',
-    //全局引用
     globalAsyncAsSync: true
 });
+
+//local-qa
+fis.media('lqa').match('::packager', {
+        postpackager: fis.plugin('loader', {
+            allInOne: true
+        })
+    })
+    .match('*.js', {
+        optimizer: fis.plugin('uglify-js')
+    });
+
+//qa production
+fis.media('prod').match('::packager', {
+        postpackager: fis.plugin('loader', {
+            allInOne: true
+        })
+    })
+    .match('*.js', {
+        optimizer: fis.plugin('uglify-js')
+    })
+    .match('*', {
+        url: '/webapp$0'
+    });

@@ -1,3 +1,47 @@
-.navbar-p{
+@import '/modules/static/css/_global';
+@import '/modules/static/css/_flex';
 
+$headerHeight:.45rem;
+header{
+	width: 100%;
+	position: fixed;
+	top:0px;
+	z-index: 1000;
+	padding:0 .15rem;
+	height:$headerHeight;
+	background-color: $g_baseColor;
+	color: white;
+
+	@include flexbox;
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	@include align-items(center);
+	
+
+	h2{
+		font-size: .18rem !important;
+		margin-left: .05rem;
+		flex-shrink: 1;
+		@include flex-grow(1);
+	}
+
+	div{
+		display: inline-block;
+	}
+
+	.back{
+		width:.2rem;
+		height:100%;
+		background: url('./img/back.png?__inline') no-repeat center;
+		background-size: 65%;
+	}
+	.sync{
+		width:.2rem;
+		height:100%;
+		background: url('./img/refresh.png?__inline') no-repeat center;
+		background-size: 100%;
+	}
+	.resolve{
+		font-size: .16rem;
+	}
 }

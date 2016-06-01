@@ -1,0 +1,68 @@
+@import './_global';
+
+/* common base style */
+[ms-controller] {
+	visibility: hidden;
+}
+.ms-controller {
+	visibility: hidden;
+}
+
+/**{
+	box-sizing: border-box;	
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html{
+	height: 100%;
+	margin: 0rem;
+	padding: 0rem;
+	font-size: $g_baseFontSize;
+	font-family: $g_baseFontFamily;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+	width: 100%;
+	min-height: 100%;
+	margin: 0px;
+	!* padding-top: .45rem; *!
+	overflow-x: hidden;
+	-webkit-overflow-scrolling:touch;
+}
+
+!* 去掉touch时的灰层 *!
+a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);!* 老方法 *!
+	-webkit-tap-highlight-color: transparent; !* For some Androids *!
+}
+h1,h2,h3,h4,h5,h6{
+	padding: 0rem;
+	margin: 0rem;
+	font-weight: normal;
+}*/
+.clearfloat {
+	zoom: 1;
+
+	&:after {
+		display: block;
+		clear: both;
+		content: '';
+		visibility: hidden;
+		height: 0;
+	}
+}
+.ms-view {
+	background-color: white;
+}
+div, span, button {
+	-webkit-user-select: none;
+	user-select: none;
+}
+button {
+	-webkit-appearance: none;
+	outline: none
+}
+
+/* index.html base style */

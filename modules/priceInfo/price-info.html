@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="price-info.scss?__inline">
+<div class="" ms-controller="price-info" id="price-info">
+	
+	<section class="innInfo">
+		<ul>
+			<li>客栈名称：{{::priceInfo.innInfo.innName}}</li>
+			<li>客栈电话：{{::priceInfo.innInfo.contact}}</li>
+			<li>消息时间：{{::priceInfo.innInfo.date}}</li>
+		</ul>
+	</section>
+	<section class="annotation">
+		<ul>
+			<li><span class="tomato-price-mark"></span>红色为番茄代销价格</li>
+			<li><span class="qunar-price-mark"></span>蓝色为去哪儿价格</li>
+		</ul>
+	</section>
+	<section class="price-table">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>房型</th>
+					<th ms-repeat="priceInfo.priceInfo.date">{{::el | date("MM-dd")}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ms-repeat="priceInfo.priceInfo.roomTypeAndPrice">
+					<td>{{::el.roomTypeName}}</td>
+					<td ms-repeat="el.price">
+						<div ms-if="el.tomato == el.qunar">{{::el.tomato}}</div>
+						<div ms-if="el.tomato != el.qunar">
+							<div class="tomato-price">{{::el.tomato}}</div>
+							<div class="qunar-price">{{::el.qunar}}</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>		
+	</section>
+</div>
