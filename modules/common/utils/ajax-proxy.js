@@ -36,13 +36,11 @@ define(["/modules/static/js/session"], function(session) {
         this.newOptions = $.extend(true, {}, this.defaultOptions, options)
     }
 
-    GetAndPostProxy.prototype = {
-        get: function() {
-            return $.get(this.newOptions.url, this.newOptions.data, this.newOptions.dataType);
-        },
-        post: function() {
-            return $.post(this.newOptions.url, this.newOptions.data, this.newOptions.dataType);
-        }
+    GetAndPostProxy.prototype.get = function() {
+        return $.get(this.newOptions.url, this.newOptions.data, this.newOptions.dataType);
+    }
+    GetAndPostProxy.prototype.post = function() {
+        return $.post(this.newOptions.url, this.newOptions.data, this.newOptions.dataType);
     }
 
     function bublic(type, options) {

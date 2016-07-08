@@ -3,15 +3,13 @@
 帮助
 ===
 
- 项目打包基于fis3，所以首先安装fis3 `npm install fis3 -g`
+ 项目打包基于fis3，所以首先安装fis3 `npm install fis3 -g`，当然，要先安装node；
 
 ## 插件安装
 
-* `npm install fis-parser-node-sass -g`
+* `npm install fis3-hook-amd -g`
 
-* `npm install fis3-hook-module -g`
-
-* `npm install fis-parser-node-sass -g`
+* `npm install fis3-parser-node-sass -g`
 
 * `npm install fis3-postpackager-loader -g`
 
@@ -30,7 +28,8 @@
 
 ## 发布上线
 
-* 编译打包 `fis3 release prod -d ./dist`
+* 编译打包 `fis3 release prod -d ./webapp-crm`
+* 是否发布成功 `http://crm.afanqie.com/webapp/index.html#!/error`
 
 ## 淘宝镜像
 
